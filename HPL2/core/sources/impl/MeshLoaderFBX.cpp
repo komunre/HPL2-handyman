@@ -17,6 +17,8 @@
  * along with Amnesia: The Dark Descent.  If not, see <https://www.gnu.org/licenses/>.
  */
 
+#if 0
+
 #include "impl/MeshLoaderFBX.h"
 
 #include "system/LowLevelSystem.h"
@@ -557,7 +559,7 @@ namespace hpl {
 			transFlags |= eAnimTransformFlag_Rotate;
 
 			KFbxVector4 pTranslation;
-			KFbxQuaternion pRotation;
+			FBxQuaternion pRotation;
 			KFbxVector4 pShearing;
 			KFbxVector4 pScaling;
 			double pSign;
@@ -1535,3 +1537,4 @@ namespace hpl {
 		return lStatus;
 	}
 }
+#endif
