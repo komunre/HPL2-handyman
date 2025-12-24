@@ -4,7 +4,7 @@
 //////////////////////////////////////////////////
 #include "BuildID_MaterialEditor.h"
 
-static char gsBuildID[16] = "20251224223123";
+static char gsBuildID[16] = "20251225011714";
 
 const char* GetBuildID_MaterialEditor()
 {

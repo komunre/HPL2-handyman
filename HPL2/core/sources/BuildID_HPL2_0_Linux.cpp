@@ -4,7 +4,7 @@
 //////////////////////////////////////////////////
 #include "BuildID_HPL2_0.h"
 
-static char gsBuildID[16] = "20251224223058";
+static char gsBuildID[16] = "20251225011650";
 
 const char* GetBuildID_HPL2_0()
 {

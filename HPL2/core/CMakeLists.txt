@@ -38,11 +38,11 @@ IF(APPLE)
         SET(PRIVATE_LIB_SUFFIX "lib/macosx")
     endif()
 ELSEIF(LINUX)
-    SET(PRIVATE_LIB_SUFFIX "lib/linux")
+    SET(PRIVATE_LIB_SUFFIX "lib/linux64")
     SET(PRIVATE_LIB_DIR ${CMAKE_CURRENT_SOURCE_DIR}/../dependencies CACHE PATH "")
 ENDIF()
 
-add_compile_options(-L${PRIVATE_LIB_DIR}/${PRIVATE_LIB_SUFFIX}/lib64/)
+add_compile_options(-L${PRIVATE_LIB_DIR}/${PRIVATE_LIB_SUFFIX})
 
 OPTION(USE_SDL2 "Use SDL2 instead of SDL1.2" ON)
 
