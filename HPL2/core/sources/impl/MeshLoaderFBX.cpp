@@ -557,7 +557,7 @@ namespace hpl {
 			transFlags |= eAnimTransformFlag_Rotate;
 
 			KFbxVector4 pTranslation;
-			KFbxQuaternion pRotation;
+			FBxQuaternion pRotation;
 			KFbxVector4 pShearing;
 			KFbxVector4 pScaling;
 			double pSign;

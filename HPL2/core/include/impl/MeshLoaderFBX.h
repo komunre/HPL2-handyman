@@ -26,6 +26,9 @@
 
 
 #include <fbxsdk.h>
+#include <fbxsdk/fileio/fbx/fbxio.h>
+#include <fbxsdk/fbxsdk_compatibility.h> // Until fully updated to 2013.3
+typedef class FbxCluster KFbxLink;
 
 #include "math/MathTypes.h"
 
@@ -150,8 +153,8 @@ namespace hpl {
 		cBone* LoadSkeletonData(cBone* apBone,KFbxNode *apNode, int alDepth);
 
 		const char* GetTabs(int alDepth);
-		const char* GetAttrName(KFbxNodeAttribute::EAttributeType alNum);
-		const char* GetSkelTypeName(KFbxSkeleton::ESkeletonType alNum);
+		const char* GetAttrName(KFbxNodeAttribute::EType alNum);
+		const char* GetSkelTypeName(KFbxSkeleton::EType alNum);
 		const char* GetRotOrderName(ERotationOrder alNum);
 		const char* GetLinkModeName(KFbxLink::ELinkMode alNum);
 
