@@ -5,17 +5,16 @@ project(HPL2)
 
 # HPL2 is not compliant with C++ ISO
 add_compile_options(-fpermissive)
-
 set(CMAKE_MODULE_PATH "${CMAKE_CURRENT_SOURCE_DIR}/cmake")
 include(BoilerPlate)
 
 set(HPL2_VERSION_MAJOR 2)
 set(HPL2_VERSION_MINOR 0)
-if(IS_APPLE_64)
-    set(BIN_LIBROOT "${PLATFORM_PREFIX}64")
-else()
-    set(BIN_LIBROOT ${PLATFORM_PREFIX})
-endif()
+#if(IS_APPLE_64)
+set(BIN_LIBROOT "${PLATFORM_PREFIX}64")
+#else()
+#    set(BIN_LIBROOT ${PLATFORM_PREFIX})
+#endif()
 
 set(DEP_LIB_DIR "${CMAKE_CURRENT_SOURCE_DIR}/../dependencies/lib/${BIN_LIBROOT}")
 set(DEP_INCLUDE_DIR "${CMAKE_CURRENT_SOURCE_DIR}/../dependencies/include")
@@ -42,6 +41,8 @@ ELSEIF(LINUX)
     SET(PRIVATE_LIB_SUFFIX "lib/linux")
     SET(PRIVATE_LIB_DIR ${CMAKE_CURRENT_SOURCE_DIR}/../dependencies CACHE PATH "")
 ENDIF()
+
+add_compile_options(-L${PRIVATE_LIB_DIR}/${PRIVATE_LIB_SUFFIX}/lib64/)
 
 OPTION(USE_SDL2 "Use SDL2 instead of SDL1.2" ON)
 
@@ -246,7 +247,7 @@ FindPrebuiltLibrary(NEWTON_LIBRARY Newton)
 FindPrebuiltLibrary(ANGELSCRIPT_LIBRARY angelscript)
 # I was unable to source this one...
 #FindPrebuiltLibrary(FBX_LIBRARY fbxsdk-2012.2-static)
-FindPrebuiltLibrary(FBX_LIBRARY fbxsdk-2013.3-static)
+#FindPrebuiltLibrary(FBX_LIBRARY fbxsdk-2013.3-static)
 FindPrebuiltLibrary(GLEW_LIBRARY GLEW)
 FindPrebuiltLibrary(THEORA_LIBRARY theora)
 FindPrebuiltLibrary(DEVIL_LIBRARY IL)
