@@ -1,6 +1,11 @@
 cmake_minimum_required (VERSION 2.8.11)
 project(HPL2)
 
+#set(TARGET HPL2 PROPERTY CXX_STANDARD 98)
+
+# HPL2 is not compliant with C++ ISO
+add_compile_options(-fpermissive)
+
 set(CMAKE_MODULE_PATH "${CMAKE_CURRENT_SOURCE_DIR}/cmake")
 include(BoilerPlate)
 
@@ -239,7 +244,9 @@ source_group("Platform" REGULAR_EXPRESSION "\\/impl\\/Platform.+")
 
 FindPrebuiltLibrary(NEWTON_LIBRARY Newton)
 FindPrebuiltLibrary(ANGELSCRIPT_LIBRARY angelscript)
-FindPrebuiltLibrary(FBX_LIBRARY fbxsdk-2012.2-static)
+# I was unable to source this one...
+#FindPrebuiltLibrary(FBX_LIBRARY fbxsdk-2012.2-static)
+FindPrebuiltLibrary(FBX_LIBRARY fbxsdk-2013.3-static)
 FindPrebuiltLibrary(GLEW_LIBRARY GLEW)
 FindPrebuiltLibrary(THEORA_LIBRARY theora)
 FindPrebuiltLibrary(DEVIL_LIBRARY IL)
@@ -254,6 +261,9 @@ add_library(HPL2 STATIC
     ${version_sources}
     ${impl_sources}
 )
+
+# HPL2 is not compliant with C++ ISO
+add_compile_options(-fpermissive)
 
 target_include_directories(HPL2
     ${HPL2_INCLUDES}
